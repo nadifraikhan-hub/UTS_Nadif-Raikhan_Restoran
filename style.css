@@ -1,0 +1,745 @@
+/* =========================================
+   RASA NUSANTARA - CSS EKSTERNAL
+   Materi: selector, box model, flexbox, grid,
+   responsive design, dan semantic HTML.
+   ========================================= */
+
+:root {
+    --cream: #fffaf1;
+    --paper: #ffffff;
+    --ink: #2c241e;
+    --muted: #766b60;
+    --brown: #713f25;
+    --brown-dark: #422719;
+    --orange: #d98a36;
+    --orange-light: #f4dfbf;
+    --line: #eadfd1;
+    --shadow: 0 12px 30px rgba(66, 39, 25, 0.08);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 90px;
+}
+
+body {
+    margin: 0;
+    background: var(--cream);
+    color: var(--ink);
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.6;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button, input, select, textarea {
+    font: inherit;
+}
+
+.container {
+    width: min(1120px, calc(100% - 40px));
+    margin-inline: auto;
+}
+
+.section-padding {
+    padding: 88px 0;
+}
+
+/* Header dan navigasi: Flexbox */
+.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: rgba(255, 250, 241, 0.96);
+    border-bottom: 1px solid var(--line);
+}
+
+.header-inner {
+    min-height: 78px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 28px;
+}
+
+.logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 11px;
+    font-size: 19px;
+    font-weight: 500;
+    letter-spacing: -0.5px;
+}
+
+.logo strong {
+    color: var(--brown);
+}
+
+.logo-icon {
+    display: grid;
+    place-items: center;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    color: var(--cream);
+    background: var(--brown);
+    font-size: 14px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.main-nav ul {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.main-nav a {
+    color: var(--muted);
+    font-size: 14px;
+    font-weight: 700;
+    transition: color 0.2s ease;
+}
+
+.main-nav a:hover,
+.main-nav a:focus-visible {
+    color: var(--orange);
+}
+
+/* Hero */
+.hero {
+    position: relative;
+    overflow: hidden;
+    min-height: 530px;
+    display: flex;
+    align-items: center;
+    background:
+        radial-gradient(ellipse at 80% 45%, rgba(217, 138, 54, 0.23), transparent 28%),
+        radial-gradient(ellipse at 90% 85%, rgba(113, 63, 37, 0.16), transparent 30%),
+        linear-gradient(115deg, #f7e9d4 0%, #fff8ed 58%, #f1d8b5 100%);
+}
+
+.hero::after {
+    content: "RASA";
+    position: absolute;
+    right: -15px;
+    bottom: -100px;
+    color: rgba(113, 63, 37, 0.06);
+    font-size: clamp(140px, 25vw, 330px);
+    line-height: 1;
+    font-weight: 900;
+    letter-spacing: -15px;
+    pointer-events: none;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    padding-top: 65px;
+    padding-bottom: 75px;
+}
+
+.eyebrow {
+    margin: 0 0 13px;
+    color: var(--orange);
+    text-transform: uppercase;
+    letter-spacing: 2.4px;
+    font-size: 11px;
+    font-weight: 800;
+}
+
+h1, h2, h3, p {
+    margin-top: 0;
+}
+
+.hero h1 {
+    max-width: 720px;
+    margin-bottom: 22px;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(42px, 6vw, 70px);
+    line-height: 1.08;
+    letter-spacing: -2px;
+}
+
+.hero h1 span {
+    color: var(--brown);
+    font-style: italic;
+}
+
+.hero-description {
+    max-width: 510px;
+    margin-bottom: 30px;
+    color: #6d5b4c;
+    font-size: 16px;
+}
+
+.button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    min-height: 48px;
+    padding: 12px 22px;
+    border: 0;
+    border-radius: 4px;
+    font-size: 13px;
+    font-weight: 800;
+    cursor: pointer;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.button:hover {
+    transform: translateY(-2px);
+}
+
+.button-primary {
+    color: white;
+    background: var(--brown);
+}
+
+.button-primary:hover {
+    background: var(--brown-dark);
+}
+
+.button-light {
+    color: var(--brown-dark);
+    background: var(--cream);
+}
+
+.button-light:hover {
+    background: white;
+}
+
+/* Tentang kami: CSS Grid */
+.intro {
+    background: var(--paper);
+}
+
+.intro-layout {
+    display: grid;
+    grid-template-columns: 0.85fr 1.15fr;
+    align-items: center;
+    gap: 80px;
+}
+
+.intro-mark {
+    min-height: 290px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #e9d5ba;
+    outline: 1px solid #e9d5ba;
+    outline-offset: -12px;
+    background:
+        radial-gradient(circle at center, rgba(255, 250, 241, 0.92), rgba(244, 223, 191, 0.72)),
+        repeating-linear-gradient(45deg, transparent 0 12px, rgba(113, 63, 37, 0.04) 12px 13px);
+}
+
+.intro-mark-large {
+    color: var(--brown);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 100px;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: -8px;
+}
+
+.intro-mark-small {
+    margin-top: 16px;
+    color: var(--brown);
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    font-size: 10px;
+    font-weight: 800;
+}
+
+.intro-copy h2,
+.section-heading h2,
+.contact-copy h2,
+.visit-content h2 {
+    margin-bottom: 18px;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(30px, 4vw, 43px);
+    line-height: 1.2;
+    letter-spacing: -1px;
+}
+
+.intro-copy > p:not(.eyebrow):not(.signature) {
+    color: var(--muted);
+    font-size: 14px;
+}
+
+.signature {
+    margin: 24px 0 0;
+    color: var(--brown);
+    font-family: Georgia, "Times New Roman", serif;
+    font-style: italic;
+}
+
+/* Daftar menu: CSS Grid dan Box Model */
+.menu-section {
+    background: var(--cream);
+}
+
+.section-heading {
+    margin-bottom: 38px;
+    text-align: center;
+}
+
+.section-heading h2 {
+    margin-bottom: 10px;
+}
+
+.section-heading > p:last-child {
+    margin-bottom: 0;
+    color: var(--muted);
+    font-size: 14px;
+}
+
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+}
+
+.menu-card {
+    overflow: hidden;
+    min-width: 0;
+    border: 1px solid var(--line);
+    border-radius: 7px;
+    background: var(--paper);
+    box-shadow: 0 5px 18px rgba(66, 39, 25, 0.035);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.menu-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow);
+}
+
+.menu-visual {
+    min-height: 165px;
+    display: grid;
+    place-items: center;
+    background: var(--orange-light);
+}
+
+.menu-visual span {
+    display: grid;
+    place-items: center;
+    width: 105px;
+    height: 105px;
+    border: 1px solid rgba(113, 63, 37, 0.18);
+    border-radius: 50%;
+    background: rgba(255, 250, 241, 0.72);
+    font-size: 54px;
+}
+
+.visual-rendang { background: linear-gradient(135deg, #f0d0a1, #e7b36d); }
+.visual-nasi { background: linear-gradient(135deg, #e9d9b5, #d6b68b); }
+.visual-soto { background: linear-gradient(135deg, #f2e0b9, #e8c982); }
+.visual-sate { background: linear-gradient(135deg, #e9c7a3, #d8a16d); }
+.visual-es { background: linear-gradient(135deg, #dce6c4, #b6c58c); }
+.visual-klepon { background: linear-gradient(135deg, #d9e2b2, #a9bc7c); }
+
+.menu-card-body {
+    padding: 20px 19px 21px;
+}
+
+.menu-title-row {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 9px;
+}
+
+.menu-title-row h3 {
+    margin: 0;
+    font-size: 16px;
+    line-height: 1.35;
+}
+
+.price {
+    flex-shrink: 0;
+    color: var(--brown);
+    font-size: 12px;
+    font-weight: 800;
+}
+
+.menu-card-body p {
+    min-height: 66px;
+    margin-bottom: 16px;
+    color: var(--muted);
+    font-size: 12px;
+}
+
+.menu-tag {
+    display: inline-block;
+    padding: 5px 9px;
+    border-radius: 3px;
+    color: var(--brown);
+    background: #f8eee0;
+    font-size: 10px;
+    font-weight: 800;
+}
+
+/* Banner promosi: Flexbox */
+.visit-banner {
+    padding: 58px 0;
+    color: white;
+    background: var(--brown);
+}
+
+.visit-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.visit-content .eyebrow {
+    color: #f0bd7a;
+}
+
+.visit-content h2 {
+    max-width: 600px;
+    margin-bottom: 10px;
+    font-size: clamp(28px, 4vw, 38px);
+}
+
+.visit-content p:not(.eyebrow) {
+    margin-bottom: 0;
+    color: #e5d4c7;
+    font-size: 14px;
+}
+
+/* Kontak dan formulir */
+.contact-section {
+    background: var(--paper);
+}
+
+.contact-layout {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 75px;
+    align-items: start;
+}
+
+.contact-copy h2 {
+    margin-bottom: 16px;
+}
+
+.contact-copy > p:not(.eyebrow) {
+    margin-bottom: 30px;
+    color: var(--muted);
+    font-size: 14px;
+}
+
+.contact-detail {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    margin-top: 22px;
+}
+
+.detail-icon {
+    display: grid;
+    flex-shrink: 0;
+    place-items: center;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    color: var(--brown);
+    background: #f8eee0;
+    font-size: 20px;
+}
+
+.contact-detail h3 {
+    margin: 0 0 3px;
+    font-size: 13px;
+}
+
+.contact-detail p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 12px;
+}
+
+.contact-form {
+    padding: 30px;
+    border: 1px solid var(--line);
+    border-radius: 7px;
+    background: var(--cream);
+    box-shadow: var(--shadow);
+}
+
+.contact-form h3 {
+    margin-bottom: 5px;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 25px;
+}
+
+.form-note {
+    margin-bottom: 22px;
+    color: var(--muted);
+    font-size: 12px;
+}
+
+.form-group {
+    margin-bottom: 16px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 7px;
+    font-size: 12px;
+    font-weight: 800;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    display: block;
+    width: 100%;
+    padding: 12px 13px;
+    border: 1px solid #ded0bf;
+    border-radius: 4px;
+    outline: none;
+    color: var(--ink);
+    background: white;
+    font-size: 13px;
+}
+
+.form-group textarea {
+    resize: vertical;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: var(--orange);
+    box-shadow: 0 0 0 3px rgba(217, 138, 54, 0.13);
+}
+
+.submit-button {
+    width: 100%;
+    margin-top: 3px;
+}
+
+/* Footer */
+.site-footer {
+    color: #f9eee2;
+    background: #2f2119;
+}
+
+.footer-main {
+    display: grid;
+    grid-template-columns: 1.5fr 0.8fr 0.8fr;
+    gap: 50px;
+    padding-top: 52px;
+    padding-bottom: 45px;
+}
+
+.footer-logo {
+    margin-bottom: 15px;
+    color: white;
+}
+
+.footer-logo strong {
+    color: #f0bd7a;
+}
+
+.footer-logo .logo-icon {
+    color: var(--brown-dark);
+    background: #f0bd7a;
+}
+
+.footer-main p {
+    margin-bottom: 0;
+    color: #c9b9ac;
+    font-size: 12px;
+}
+
+.footer-main h3 {
+    margin-bottom: 15px;
+    color: #f0bd7a;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.footer-links {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+}
+
+.footer-links h3 {
+    margin-bottom: 7px;
+}
+
+.footer-links a {
+    color: #c9b9ac;
+    font-size: 12px;
+}
+
+.footer-links a:hover,
+.footer-bottom a:hover {
+    color: white;
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.footer-bottom-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding-top: 17px;
+    padding-bottom: 17px;
+}
+
+.footer-bottom p,
+.footer-bottom a {
+    margin: 0;
+    color: #b7a69a;
+    font-size: 11px;
+}
+
+/* Responsive layout untuk layar tablet dan ponsel */
+@media (max-width: 850px) {
+    .intro-layout {
+        gap: 40px;
+    }
+
+    .menu-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .contact-layout {
+        gap: 35px;
+    }
+
+    .footer-main {
+        gap: 28px;
+    }
+}
+
+@media (max-width: 620px) {
+    .container {
+        width: min(100% - 30px, 1120px);
+    }
+
+    .section-padding {
+        padding: 62px 0;
+    }
+
+    .header-inner {
+        min-height: auto;
+        padding-top: 14px;
+        padding-bottom: 13px;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .main-nav {
+        width: 100%;
+    }
+
+    .main-nav ul {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 10px 22px;
+    }
+
+    .main-nav a {
+        font-size: 12px;
+    }
+
+    .hero {
+        min-height: 460px;
+    }
+
+    .hero-content {
+        padding-top: 58px;
+        padding-bottom: 65px;
+    }
+
+    .hero h1 {
+        letter-spacing: -1px;
+    }
+
+    .intro-layout,
+    .contact-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .intro-layout {
+        gap: 32px;
+    }
+
+    .intro-mark {
+        min-height: 220px;
+    }
+
+    .intro-mark-large {
+        font-size: 76px;
+    }
+
+    .menu-grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .menu-visual {
+        min-height: 150px;
+    }
+
+    .menu-card-body p {
+        min-height: auto;
+    }
+
+    .visit-content {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .contact-form {
+        padding: 22px 18px;
+    }
+
+    .footer-main {
+        grid-template-columns: 1fr 1fr;
+        gap: 30px 20px;
+    }
+
+    .footer-main > div:first-child {
+        grid-column: 1 / -1;
+    }
+
+    .footer-bottom-inner {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 8px;
+    }
+}
